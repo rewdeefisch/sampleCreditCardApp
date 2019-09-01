@@ -53,6 +53,10 @@ body {
 
 // Custom Styling of Index
 
+.tile-container{
+    margin-top: 1em;
+}
+
 .card-status {
     position: absolute;
     top: 25px;
@@ -74,4 +78,13 @@ body {
             color: #b90000;
         }
     }
+}
+
+.piggymock {
+    display: block;
+    margin: auto;
+}
+
+.bg-green {
+    background-color: $primary-green !important;
 }

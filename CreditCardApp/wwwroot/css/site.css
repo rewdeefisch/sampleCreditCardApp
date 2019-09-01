@@ -228,6 +228,10 @@ body {
   }
 }
 
+.tile-container {
+  margin-top: 1em;
+}
+
 .card-status {
   position: absolute;
   top: 25px;
@@ -252,5 +256,14 @@ body {
 
 .card-status span.card-status:not(.OK) {
   color: #b90000;
+}
+
+.piggymock {
+  display: block;
+  margin: auto;
+}
+
+.bg-green {
+  background-color: #01a850 !important;
 }
 /*# sourceMappingURL=Site.css.map */
