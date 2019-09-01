@@ -14,9 +14,17 @@
             {
                 CardHolderName = "John Doe",
                 CardStatus = CreditCardApp.BusinessLayer.Enum.CardCompromisedEnums.None,
-                LastFourDigits = 3125,
+                LastFourDigits = 9125,
                 SecurityCode = 249,
                 ExpirationDate = DateTime.Now.AddYears(1).AddMonths(3)
+            },
+            new CardViewModel()
+            {
+                CardHolderName = "John Doe",
+                CardStatus = CreditCardApp.BusinessLayer.Enum.CardCompromisedEnums.Stolen,
+                LastFourDigits = 8562,
+                SecurityCode = 979,
+                ExpirationDate = DateTime.Now.AddYears(1).AddMonths(1)
             },
     };
 }
@@ -26,26 +34,34 @@
         <h2>Cards</h2>
         <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
             <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
+                @for (int i = 0; i < (ViewData["CardData"] as IEnumerable<CardViewModel>).Count(); i++)
+                {
+                    if (i == 0)
+                    {
+                        <li data-target="#myCarousel" data-slide-to=@i class="active"></li>
+                    }
+                    else
+                    {
+                        <li data-target="#myCarousel" data-slide-to=@i></li>
+                    }
+                }
             </ol>
             <div class="carousel-inner" role="listbox">
-                @foreach (var cardData in ViewData["CardData"] as IEnumerable<CardViewModel>)
+                @for (int i = 0; i < (ViewData["CardData"] as IEnumerable<CardViewModel>).Count(); i++)
                 {
-                    <div class="item">
-                        @Html.Partial("../Shared/_Card.cshtml", cardData)
-                    </div>
+                    @if (i == 0)
+                    {
+                        <div class="item active">
+                            @Html.Partial("../Shared/_Card.cshtml", (ViewData["CardData"] as IEnumerable<CardViewModel>).ElementAt(i))
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="item">
+                            @Html.Partial("../Shared/_Card.cshtml", (ViewData["CardData"] as IEnumerable<CardViewModel>).ElementAt(i))
+                        </div>
+                    }
                 }
-                @*<div class="item active">
-                    @Html.Partial("../Shared/_Card.cshtml")
-                </div>
-                <div class="item">
-                    @Html.Partial("../Shared/_Card.cshtml")
-                </div>
-                <div class="item">
-                    @Html.Partial("../Shared/_Card.cshtml")
-                </div>*@
             </div>
             <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
                 <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>

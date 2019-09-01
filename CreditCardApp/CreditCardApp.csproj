@@ -13,4 +13,10 @@
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.7.12" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="wwwroot\css\Site.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

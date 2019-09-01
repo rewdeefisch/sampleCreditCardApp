@@ -2,40 +2,47 @@
 
 * {
     box-sizing: border-box;
-    font-family: 'Space Mono', monospace;
 }
-
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-}
-
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    display: -webkit-flex;
-    -webkit-align-items: center;
-    -webkit-justify-content: center;
-    background-image: linear-gradient(to right top, #a2beeb, #8ecfee, #8edde5, #a4e7d5, #c7eec7);
-    flex-direction: column;
-    -webkit-flex-direction: column;
-}
-
-.title {
-    margin-bottom: 30px;
-    color: #162969;
-}
-
 
 .card {
+    font-family: 'Space Mono', monospace;
     width: 320px;
     height: 190px;
     -webkit-perspective: 600px;
     -moz-perspective: 600px;
+    margin: 0 auto;
     perspective: 600px;
+
+    .card__part {
+        box-shadow: 1px 1px #aaa3a3;
+        top: 0;
+        position: absolute;
+        z-index: 1000;
+        left: 0;
+        display: inline-block;
+        width: 320px;
+        height: 190px;
+        background-image: url('https://image.ibb.co/bVnMrc/g3095.png'), linear-gradient(to right bottom, $primary-green, $secondary-green, $primary-green, $secondary-green, $primary-green);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        border-radius: 8px;
+        -webkit-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        -moz-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        -ms-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        -o-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+    }
+
+    &.Lost, &.Stolen, &.Damaged {
+        .card__part {
+            background-image: url('https://image.ibb.co/bVnMrc/g3095.png'), linear-gradient(to right bottom, $light-gray, $dark-gray);
+        }
+    }
 }
 
 .card__part {
@@ -47,7 +54,7 @@ body {
     display: inline-block;
     width: 320px;
     height: 190px;
-    background-image: url('https://image.ibb.co/bVnMrc/g3095.png'), linear-gradient(to right bottom, #fd696b, #fa616e, #f65871, #f15075, #ec4879); /*linear-gradient(to right bottom, #fd8369, #fc7870, #f96e78, #f56581, #ee5d8a)*/
+    background-image: url('https://image.ibb.co/bVnMrc/g3095.png'), linear-gradient(to right bottom, $primary-green, $secondary-green, $primary-green, $secondary-green, $primary-green);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -175,12 +182,12 @@ body {
     left: 15px;
 }
 
-.card:hover .card__front {
+.card:hover .card__front, .card .card__front.active {
     -webkit-transform: rotateY(180deg);
     -moz-transform: rotateY(180deg);
 }
 
-.card:hover .card__back {
+.card:hover .card__back, .card .card__back.active {
     -webkit-transform: rotateY(0deg);
     -moz-transform: rotateY(0deg);
 }
