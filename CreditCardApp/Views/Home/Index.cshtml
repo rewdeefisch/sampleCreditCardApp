@@ -26,13 +26,21 @@
                 SecurityCode = 979,
                 ExpirationDate = DateTime.Now.AddYears(1).AddMonths(1)
             },
+            new CardViewModel()
+            {
+                CardHolderName = "John Doe",
+                CardStatus = CreditCardApp.BusinessLayer.Enum.CardCompromisedEnums.Locked,
+                LastFourDigits = 1151,
+                SecurityCode = 515,
+                ExpirationDate = DateTime.Now.AddYears(4).AddMonths(5)
+            },
     };
 }
 
 <div class="row">
     <div class="col-md-6 tile-container">
         <h2>Cards</h2>
-        <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval=false>
             <ol class="carousel-indicators">
                 @for (int i = 0; i < (ViewData["CardData"] as IEnumerable<CardViewModel>).Count(); i++)
                 {

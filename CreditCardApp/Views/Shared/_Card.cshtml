@@ -21,9 +21,11 @@
             <div class="card__secret">
                 <p class="card__secret--last">420</p>
             </div>
-            <img class="card__back-square card__square" src="https://image.ibb.co/cZeFjx/little_square.png">
+            <form id="LockForm">
+                <label for="Lock">Lock Card?</label>
+                <input type="checkbox" name="Lock" @(Model.CardStatus == CreditCardApp.BusinessLayer.Enum.CardCompromisedEnums.Locked ? "checked" : null) value="locked" />
+            </form>
             <img class="card__back-logo card__logo" src="https://www.fireeye.com/partners/strategic-technology-partners/visa-fireeye-cyber-watch-program/_jcr_content/content-par/grid_20_80_full/grid-20-left/image.img.png/1505254557388.png">
-
         </div>
     </div>
 </div>

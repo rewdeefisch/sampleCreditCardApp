@@ -7,6 +7,6 @@ namespace CreditCardApp.BusinessLayer.Enum
 {
     public enum CardCompromisedEnums
     {
-        Lost, Stolen, Damaged, None
+        Lost, Stolen, Damaged, Locked, None
     }
 }

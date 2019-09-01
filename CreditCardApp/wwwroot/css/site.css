@@ -38,33 +38,9 @@
   -moz-backface-visibility: hidden;
 }
 
-.card.Lost .card__part, .card.Stolen .card__part, .card.Damaged .card__part {
+.card.Lost .card__part, .card.Stolen .card__part, .card.Damaged .card__part, .card.Locked .card__part {
   background-image: url("https://image.ibb.co/bVnMrc/g3095.png"), -webkit-gradient(linear, left top, right bottom, from(#b0b1b1), to(#717677));
   background-image: url("https://image.ibb.co/bVnMrc/g3095.png"), linear-gradient(to right bottom, #b0b1b1, #717677);
-}
-
-.card__part {
-  -webkit-box-shadow: 1px 1px #aaa3a3;
-          box-shadow: 1px 1px #aaa3a3;
-  top: 0;
-  position: absolute;
-  z-index: 1000;
-  left: 0;
-  display: inline-block;
-  width: 320px;
-  height: 190px;
-  background-image: url("https://image.ibb.co/bVnMrc/g3095.png"), -webkit-gradient(linear, left top, right bottom, from(#01a850), color-stop(#52d39e), color-stop(#01a850), color-stop(#52d39e), to(#01a850));
-  background-image: url("https://image.ibb.co/bVnMrc/g3095.png"), linear-gradient(to right bottom, #01a850, #52d39e, #01a850, #52d39e, #01a850);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  border-radius: 8px;
-  -webkit-transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
 }
 
 .card__front {
