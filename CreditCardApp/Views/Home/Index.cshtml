@@ -39,27 +39,22 @@
 
 <div class="row">
     <div class="col-md-6 tile-container">
-        <h2>Cards</h2>
+        <h2 class="text-center">Your Cards</h2>
         <div id="myCarousel" class="carousel slide" data-ride="carousel" interval="false">
             <ol class="carousel-indicators">
                 @for (int i = 0; i < (ViewData["CardData"] as IEnumerable<CardViewModel>).Count(); i++)
                 {
-                    if (i == 0)
-                    {
-                        <li data-target="#myCarousel" data-slide-to=@i class="active"></li>
-                    }
-                    else
-                    {
-                        <li data-target="#myCarousel" data-slide-to=@i></li>
-                    }
+                     <li data-target="#myCarousel" data-slide-to=@i @(i == 0 ? "class='active'" : null)></li>
                 }
             </ol>
             <div class="carousel-inner">
-                @for (int i = 0; i < (ViewData["CardData"] as IEnumerable<CardViewModel>).Count(); i++)
-                {
+                @{ for (int i = 0; i < (ViewData["CardData"] as IEnumerable<CardViewModel>).Count(); i++)
+                    { CardViewModel currentModel = (ViewData["CardData"] as IEnumerable<CardViewModel>).ElementAt(i); 
                     <div class="carousel-item @(i == 0 ? "active" : null)">
-                        @Html.Partial("../Shared/_Card.cshtml", (ViewData["CardData"] as IEnumerable<CardViewModel>).ElementAt(i))
+                        <h3>Card Status currentModel.CardStatus</h3>
+                        @Html.Partial("../Shared/_Card.cshtml", currentModel)
                     </div>
+                    }
                 }
             </div>
             <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
