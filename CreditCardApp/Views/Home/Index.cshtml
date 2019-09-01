@@ -5,7 +5,7 @@
             new CardViewModel()
             {
                 CardHolderName = "John Doe",
-                CardStatus = CreditCardApp.BusinessLayer.Enum.CardCompromisedEnums.None,
+                CardStatus = CreditCardApp.BusinessLayer.Enum.CardCompromisedEnums.OK,
                 LastFourDigits = 3123,
                 SecurityCode = 999,
                 ExpirationDate = DateTime.Now.AddYears(2)
@@ -13,7 +13,7 @@
             new CardViewModel()
             {
                 CardHolderName = "John Doe",
-                CardStatus = CreditCardApp.BusinessLayer.Enum.CardCompromisedEnums.None,
+                CardStatus = CreditCardApp.BusinessLayer.Enum.CardCompromisedEnums.OK,
                 LastFourDigits = 9125,
                 SecurityCode = 249,
                 ExpirationDate = DateTime.Now.AddYears(1).AddMonths(3)
@@ -40,7 +40,7 @@
 <div class="row">
     <div class="col-md-6 tile-container">
         <h2 class="text-center">Your Cards</h2>
-        <div id="myCarousel" class="carousel slide" data-ride="carousel" interval="false">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
             <ol class="carousel-indicators">
                 @for (int i = 0; i < (ViewData["CardData"] as IEnumerable<CardViewModel>).Count(); i++)
                 {
@@ -51,7 +51,6 @@
                 @{ for (int i = 0; i < (ViewData["CardData"] as IEnumerable<CardViewModel>).Count(); i++)
                     { CardViewModel currentModel = (ViewData["CardData"] as IEnumerable<CardViewModel>).ElementAt(i); 
                     <div class="carousel-item @(i == 0 ? "active" : null)">
-                        <h3>Card Status currentModel.CardStatus</h3>
                         @Html.Partial("../Shared/_Card.cshtml", currentModel)
                     </div>
                     }

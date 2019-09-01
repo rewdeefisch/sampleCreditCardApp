@@ -43,6 +43,20 @@
   background-image: url("https://image.ibb.co/bVnMrc/g3095.png"), linear-gradient(to right bottom, #b0b1b1, #717677);
 }
 
+.card form {
+  margin-top: 5px;
+}
+
+.card form label {
+  font-size: .9em;
+  line-height: .9em;
+  margin: 0;
+}
+
+.card form select {
+  font-size: .8em;
+}
+
 .card__front {
   padding: 18px;
   -webkit-transform: rotateY(0);
@@ -155,12 +169,12 @@
   left: 15px;
 }
 
-.card:hover .card__front, .card .card__front.active {
+.card:hover .card__front, .card.active .card__front {
   -webkit-transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
 }
 
-.card:hover .card__back, .card .card__back.active {
+.card:hover .card__back, .card.active .card__back {
   -webkit-transform: rotateY(0deg);
   -moz-transform: rotateY(0deg);
 }
@@ -212,5 +226,31 @@ body {
   .carousel-caption {
     display: none;
   }
+}
+
+.card-status {
+  position: absolute;
+  top: 25px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 15;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -ms-flex-pack: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  padding-left: 0;
+  margin-right: 15%;
+  margin-left: 15%;
+}
+
+.card-status span.card-status {
+  display: contents;
+}
+
+.card-status span.card-status:not(.OK) {
+  color: #b90000;
 }
 /*# sourceMappingURL=Site.css.map */

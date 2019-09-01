@@ -43,6 +43,19 @@
             background-image: url('https://image.ibb.co/bVnMrc/g3095.png'), linear-gradient(to right bottom, $light-gray, $dark-gray);
         }
     }
+
+    form {
+        margin-top: 5px;
+        label {
+            font-size: .9em;
+            line-height: .9em;
+            margin: 0;
+        }
+
+        select {
+            font-size: .8em;
+        }
+    }
 }
 
 .card__front {
@@ -157,12 +170,13 @@
     left: 15px;
 }
 
-.card:hover .card__front, .card .card__front.active {
+.card:hover .card__front, .card.active .card__front{
     -webkit-transform: rotateY(180deg);
     -moz-transform: rotateY(180deg);
 }
 
-.card:hover .card__back, .card .card__back.active {
+.card:hover .card__back, .card.active .card__back  {
     -webkit-transform: rotateY(0deg);
     -moz-transform: rotateY(0deg);
 }
+
