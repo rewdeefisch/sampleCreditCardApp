@@ -1,6 +1,6 @@
 ﻿@model CardViewModel
 
-<div class="card @Model.CardStatus active">
+<div class="card @Model.CardStatus">
     <div class="card__front card__part">
         <p class="card-status text-center @Model.CardStatus">Card Status<span class="card-status @Model.CardStatus"> @Model.CardStatus</span></p>
         <img class="card__front-square card__square" src="https://image.ibb.co/cZeFjx/little_square.png">
@@ -22,13 +22,15 @@
             <div class="card__secret">
                 <p class="card__secret--last">420</p>
             </div>
-            <form id="LockForm">
-                <label for="Lock">Lock Card?</label>
-                <input type="checkbox" name="Lock" @(Model.CardStatus == CreditCardApp.BusinessLayer.Enum.CardCompromisedEnums.Locked ? "checked" : null) value="locked" />
+            <form id="lockForm" data-cardid="@Model.LastFourDigits">
+                <label for="lock">Lock Card?</label>
+                <!-- This authorization header would be issued on login and used to prove that the user is authorized to modify their card. -->
+                <input type="hidden" name="headers[Authorization]" value="Bearer token" />
+                <input type="checkbox" name="lock" @(Model.CardStatus == CreditCardApp.BusinessLayer.Enum.CardCompromisedEnums.Locked ? "checked" : null) value="locked" />
             </form>
-            <form id="ProblemForm">
+            <form id="problemForm">
                 <label for="problem">Have a problem?</label>
-                <select>
+                <select name="problem">
                     <option>Damaged</option>
                     <option>Stolen</option>
                     <option>Lost</option>

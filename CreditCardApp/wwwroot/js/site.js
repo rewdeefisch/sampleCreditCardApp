@@ -1,4 +1,14 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿// What happens when you lock your card.
+$("input[name='lock']").click(function (e) {
+    var parent = $(this).parents("form");
+    var cardId = parent.data("cardid");
+    console.log(cardId);
 
-// Write your JavaScript code.
+    $.post(window.location.origin + "/lock", {
+        cardId: cardId
+    }).done(function (response) {
+        alert(response.statusText);
+    }).fail(function (error) {
+        alert(error.statusText);
+    });
+});

@@ -1,7 +1,8 @@
 ﻿@{
     ViewData["Title"] = "Credit Card App";
+    /// This data can come from the API, but for this module (which would need more security) will load all the data.
     ViewData["CardData"] = new List<CardViewModel>()
-        {
+{
             new CardViewModel()
             {
                 CardHolderName = "John Doe",
@@ -44,15 +45,16 @@
             <ol class="carousel-indicators">
                 @for (int i = 0; i < (ViewData["CardData"] as IEnumerable<CardViewModel>).Count(); i++)
                 {
-                     <li data-target="#myCarousel" data-slide-to=@i @(i == 0 ? "class='active'" : null)></li>
+                    <li data-target="#myCarousel" data-slide-to=@i @(i == 0 ? "class='active'" : null)></li>
                 }
             </ol>
             <div class="carousel-inner">
                 @{ for (int i = 0; i < (ViewData["CardData"] as IEnumerable<CardViewModel>).Count(); i++)
-                    { CardViewModel currentModel = (ViewData["CardData"] as IEnumerable<CardViewModel>).ElementAt(i); 
-                    <div class="carousel-item @(i == 0 ? "active" : null)">
-                        @Html.Partial("../Shared/_Card.cshtml", currentModel)
-                    </div>
+                    {
+                        CardViewModel currentModel = (ViewData["CardData"] as IEnumerable<CardViewModel>).ElementAt(i);
+                        <div class="carousel-item @(i == 0 ? "active" : null)">
+                            @Html.Partial("../Shared/_Card.cshtml", currentModel)
+                        </div>
                     }
                 }
             </div>
@@ -65,11 +67,11 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-        
+
     </div>
     <div class="col-md-3 tile-container">
         <h2 class="text-center">Tap To Save</h2>
-        <img class="piggymock" src="images/taptosavemock.PNG" width="200"/>
+        <img class="piggymock" src="images/taptosavemock.PNG" width="200" />
     </div>
 
     <div class="col-md-3 tile-container">
