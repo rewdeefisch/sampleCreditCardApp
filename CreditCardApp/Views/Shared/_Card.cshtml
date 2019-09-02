@@ -1,8 +1,8 @@
 ﻿@model CardViewModel
 
-<div class="card active" data-toggle="popover" data-content title="Card Status" data-status="@Model.CardStatus">
+<div class="card" data-toggle="popover" title="Card Status" data-status="@Model.CardStatus" data-trigger="focus" data-content>
     <div class="card__front card__part">
-        <p class="card-status text-center @Model.CardStatus">Card Status<span class="card-status @Model.CardStatus"> @Model.CardStatus</span></p>
+        <p class="card-status text-center @Model.CardStatus">Card Status <span class="card-status">@Model.CardStatus</span></p>
         <img class="card__front-square card__square" src="https://image.ibb.co/cZeFjx/little_square.png">
         <img class="card__front-logo card__logo" src="https://www.fireeye.com/partners/strategic-technology-partners/visa-fireeye-cyber-watch-program/_jcr_content/content-par/grid_20_80_full/grid-20-left/image.img.png/1505254557388.png">
         <p class="card_numer">**** **** **** @Model.LastFourDigits</p>
@@ -22,11 +22,11 @@
             <div class="card__secret">
                 <p class="card__secret--last">420</p>
             </div>
-            <form id="lockForm" data-cardid="@Model.LastFourDigits">
+            <form id="lockForm" data-cardid="@Model.LastFourDigits" data-status="@Model.CardStatus">
                 <label for="lock">Lock Card?</label>
                 <!-- This authorization header would be issued on login and used to prove that the user is authorized to modify their card. -->
                 <input type="hidden" name="headers[Authorization]" value="Bearer token" />
-                <input type="checkbox" name="lock" @(Model.CardStatus == CreditCardApp.BusinessLayer.Enum.CardCompromisedEnums.Locked ? "checked" : null) value="locked" />
+                <input type="checkbox" name="lock" @(Model.CardStatus != CreditCardApp.BusinessLayer.Enum.CardCompromisedEnums.OK ? "checked" : null) value="locked" />
             </form>
             <form id="problemForm" data-cardid="@Model.LastFourDigits">
                 <div class="btn-group dropup">

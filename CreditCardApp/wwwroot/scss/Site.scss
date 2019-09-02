@@ -75,9 +75,6 @@ body {
 
     span.card-status {
         display: contents;
-        &:not(.OK){
-            color: #b90000;
-        }
     }
 }
 
