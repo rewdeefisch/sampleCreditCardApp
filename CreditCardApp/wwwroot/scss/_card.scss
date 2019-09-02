@@ -38,7 +38,7 @@
         -moz-backface-visibility: hidden;
     }
 
-    &.Lost, &.Stolen, &.Damaged, &.Locked {
+    &:not([data-status="OK"]) {
         .card__part {
             background-image: url('https://image.ibb.co/bVnMrc/g3095.png'), linear-gradient(to right bottom, $light-gray, $dark-gray);
         }

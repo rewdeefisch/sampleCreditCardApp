@@ -1,6 +1,6 @@
 ﻿@model CardViewModel
 
-<div class="card @Model.CardStatus active" data-toggle="popover" data-content title="Card Status">
+<div class="card active" data-toggle="popover" data-content title="Card Status" data-status="@Model.CardStatus">
     <div class="card__front card__part">
         <p class="card-status text-center @Model.CardStatus">Card Status<span class="card-status @Model.CardStatus"> @Model.CardStatus</span></p>
         <img class="card__front-square card__square" src="https://image.ibb.co/cZeFjx/little_square.png">
@@ -30,7 +30,7 @@
             </form>
             <form id="problemForm" data-cardid="@Model.LastFourDigits">
                 <div class="btn-group dropup">
-                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button type="button" class="btn btn-green dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Have a problem?
                     </button>
                     <div class="dropdown-menu">

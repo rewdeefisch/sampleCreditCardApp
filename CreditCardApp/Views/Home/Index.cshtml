@@ -91,22 +91,25 @@
 <div class="modal fade" id="problemModal" tabindex="-1" role="dialog" aria-labelledby="problemModal" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="problemModalLabel">Report Problem</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form id="problem-modal-form">
+            <form id="problem-modal-form">
+
+                <div class="modal-header">
+                    <h4 class="modal-title" id="problemModalLabel">Report Problem</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
                     <h5>Looks like you have a problem with a <span class="modal-card-problem"></span> card.</h5>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="comments" placeholder="Enter any comments or questions here."></textarea>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Submit</button>
-            </div>
+                    <textarea class="form-control" id="problemComment" rows="3" name="comments" placeholder="Enter any comments or questions here."></textarea>
+                    <input type="hidden" name="cardId" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="modal-submit">Submit</button>
+                </div>
+            </form>
+
         </div>
     </div>
 </div>

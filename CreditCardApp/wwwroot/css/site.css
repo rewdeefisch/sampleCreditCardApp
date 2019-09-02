@@ -38,7 +38,7 @@
   -moz-backface-visibility: hidden;
 }
 
-.card.Lost .card__part, .card.Stolen .card__part, .card.Damaged .card__part, .card.Locked .card__part {
+.card:not([data-status="OK"]) .card__part {
   background-image: url("https://image.ibb.co/bVnMrc/g3095.png"), -webkit-gradient(linear, left top, right bottom, from(#b0b1b1), to(#717677));
   background-image: url("https://image.ibb.co/bVnMrc/g3095.png"), linear-gradient(to right bottom, #b0b1b1, #717677);
 }
@@ -199,6 +199,7 @@ body {
 }
 
 .carousel-indicators {
+  bottom: -7px;
   margin-bottom: 0;
 }
 
@@ -265,5 +266,9 @@ body {
 
 .bg-green {
   background-color: #01a850 !important;
+}
+
+.btn-green {
+  background-color: #fefefe;
 }
 /*# sourceMappingURL=Site.css.map */

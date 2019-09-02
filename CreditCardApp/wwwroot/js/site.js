@@ -15,17 +15,35 @@ $("input[name='lock']").click(function (e) {
         alert(response.statusText);
     }).fail(function (error) {
         isChecked = checkbox.prop("checked");
-        console.log("Is Checked After Reverrt: " + isChecked);
+        console.log("Is Checked After Fail: " + isChecked);
     });
 });
 
 // Event handler for selecting problem
 $(".dropdown-item[name='problem']").click(function (e) {
-    var currentOption = $(this);
-    console.log(currentOption.text());
+    var cardId = $(this).parents("form").data("cardid");
+    console.log($(this).text());
 
-    $(".modal-card-problem").text(currentOption.text().toLowerCase());
+    $(".modal-card-problem").text($(this).text().toLowerCase());
 
+    $("#problemModal input[name='cardId']").val(cardId);
+    console.log($("#problemModal input[name='cardId']").val());
     $('#problemModal').modal();
 });
 
+// Event handler for submitting modal problem form
+$("#modal-submit").click(function (e) {
+    var form = $(this).parents("form");
+    e.preventDefault();
+
+    console.log(form.find("textarea").val());
+
+    $.post(window.location.origin + "/problem", {
+        cardId: form.find("input[name='cardId']").val(),
+        comments: form.find("textarea").val()
+    }).done(function (response) {
+        alert(response.statusText);
+    }).fail(function (error) {
+        alert(error.statusText);
+    });
+});

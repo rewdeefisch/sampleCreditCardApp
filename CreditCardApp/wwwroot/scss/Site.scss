@@ -21,6 +21,7 @@ body {
 }
 
 .carousel-indicators {
+    bottom: -7px;
     margin-bottom: 0;
 }
 
@@ -87,4 +88,8 @@ body {
 
 .bg-green {
     background-color: $primary-green !important;
+}
+
+.btn-green {
+    background-color: $primary-white;
 }
