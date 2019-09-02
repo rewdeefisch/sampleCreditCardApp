@@ -1,6 +1,6 @@
 ﻿@model CardViewModel
 
-<div class="card @Model.CardStatus">
+<div class="card @Model.CardStatus" data-toggle="popover" data-content title="Card Status">
     <div class="card__front card__part">
         <p class="card-status text-center @Model.CardStatus">Card Status<span class="card-status @Model.CardStatus"> @Model.CardStatus</span></p>
         <img class="card__front-square card__square" src="https://image.ibb.co/cZeFjx/little_square.png">

@@ -1,14 +1,20 @@
 ﻿// What happens when you lock your card.
 $("input[name='lock']").click(function (e) {
-    var parent = $(this).parents("form");
+    e.preventDefault();
+    e.stopPropagation();
+    var checkbox = $(this);
+    var isChecked = checkbox.prop("checked");
+    var parent = checkbox.parents("form");
     var cardId = parent.data("cardid");
-    console.log(cardId);
+    console.log("Is Checked After Click: " + isChecked);
 
     $.post(window.location.origin + "/lock", {
         cardId: cardId
     }).done(function (response) {
+        checkbox.prop("checked", !isChecked);
         alert(response.statusText);
     }).fail(function (error) {
-        alert(error.statusText);
+        isChecked = checkbox.prop("checked");
+        console.log("Is Checked After Reverrt: " + isChecked);
     });
 });
