@@ -1,14 +1,12 @@
-﻿using CreditCardApp.BusinessLayer.Enum;
-using CreditCardApp.BusinessLayer.Responses;
-using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using RestSharp;
-using System;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
-namespace CreditCardApp.Controllers
+﻿namespace CreditCardApp.Controllers
 {
+    using CreditCardApp.BusinessLayer.Enum;
+    using CreditCardApp.BusinessLayer.Responses;
+    using Microsoft.AspNetCore.Mvc;
+    using Newtonsoft.Json;
+    using RestSharp;
+    using System;
+
     public class CardApiController : Controller
     {
         // This would come from a config value, here in plain text for simplicity

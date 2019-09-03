@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace CreditCardApp.BusinessLayer.Enum
+﻿namespace CreditCardApp.BusinessLayer.Enum
 {
     public enum CardCompromisedEnums
     {

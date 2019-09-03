@@ -1,11 +1,8 @@
-﻿using CreditCardApp.BusinessLayer.Enum;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace CreditCardApp.Models
+﻿namespace CreditCardApp.Models
 {
+    using CreditCardApp.BusinessLayer.Enum;
+    using System;
+
     public class CardViewModel
     {
         public double LastDigits { get; set; }

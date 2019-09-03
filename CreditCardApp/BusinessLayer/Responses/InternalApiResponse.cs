@@ -1,5 +1,4 @@
-﻿
-namespace CreditCardApp.BusinessLayer.Responses
+﻿namespace CreditCardApp.BusinessLayer.Responses
 {
     using CreditCardApp.BusinessLayer.Enum;
 

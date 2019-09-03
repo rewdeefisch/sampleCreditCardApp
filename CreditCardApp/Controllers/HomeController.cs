@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using CreditCardApp.Models;
-using CreditCardApp.BusinessLayer;
-using Newtonsoft.Json;
-
-namespace CreditCardApp.Controllers
+﻿namespace CreditCardApp.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Diagnostics;
+    using System.Linq;
+    using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Mvc;
+    using CreditCardApp.Models;
+    using CreditCardApp.BusinessLayer;
+    using Newtonsoft.Json;
+
     public class HomeController : Controller
     {
         [HttpGet]

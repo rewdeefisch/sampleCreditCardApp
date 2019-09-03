@@ -4,10 +4,6 @@
     using Newtonsoft.Json;
     using RestSharp;
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-
-    using System.Threading.Tasks;
     public static class ApiHelper
     {
         // This would come from a config value, here in plain text for simplicity

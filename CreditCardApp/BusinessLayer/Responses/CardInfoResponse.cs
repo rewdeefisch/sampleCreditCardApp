@@ -1,11 +1,10 @@
-﻿using CreditCardApp.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace CreditCardApp.BusinessLayer.Responses
+﻿namespace CreditCardApp.BusinessLayer.Responses
 {
+    using CreditCardApp.BusinessLayer.Enum;
+    using CreditCardApp.Models;
+    using System;
+    using System.Collections.Generic;
+
     public class CardInfoResponse
     {
         public string CardHolder { get; set; }
@@ -24,7 +23,7 @@ namespace CreditCardApp.BusinessLayer.Responses
                     CardId =  card.cardId,
                     SecurityCode = random.Next(999),
                     ExpirationDate = DateTime.Now.AddMonths(random.Next(13)),
-                    CardStatus = Enum.CardCompromisedEnums.OK
+                    CardStatus = CardCompromisedEnums.OK
                 });
             }
             return modelList;
