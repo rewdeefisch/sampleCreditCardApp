@@ -13,20 +13,20 @@ namespace CreditCardApp.BusinessLayer.Responses
         public List<Card> Cards { get; set; }
 
         public List<CardViewModel> ConvertToCardViewModel() {
+            var random = new Random();
             var modelList = new List<CardViewModel>();
 
             foreach(var card in this.Cards)
             {
                 modelList.Add(new CardViewModel() {
                     CardHolderName = this.CardHolder,
-                    LastFourDigits = double.Parse(card.maskedCardNumber.Replace("xx", "")),
+                    LastDigits = double.Parse(card.maskedCardNumber.Replace("xx", "")),
                     CardId =  card.cardId,
-                    SecurityCode = 999,
-                    ExpirationDate = DateTime.Now.AddYears(2),
+                    SecurityCode = random.Next(999),
+                    ExpirationDate = DateTime.Now.AddMonths(random.Next(13)),
                     CardStatus = Enum.CardCompromisedEnums.OK
                 });
             }
-
             return modelList;
         }
     }

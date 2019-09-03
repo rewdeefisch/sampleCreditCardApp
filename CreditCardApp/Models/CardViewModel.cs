@@ -8,7 +8,7 @@ namespace CreditCardApp.Models
 {
     public class CardViewModel
     {
-        public double LastFourDigits { get; set; }
+        public double LastDigits { get; set; }
 
         public string CardHolderName { get; set; }
 
