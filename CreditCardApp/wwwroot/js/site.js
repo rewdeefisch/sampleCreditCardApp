@@ -42,17 +42,31 @@ $(".dropdown-item[name='problem']").click(function (e) {
 // Event handler for submitting modal problem form
 $("#modal-submit").click(function (e) {
     var form = $(this).parents("form");
+    var cardId = form.find("input[name='cardId']").val();
+    var card = $(".card[data-cardid='" + cardId + "']");
     e.preventDefault();
 
     console.log(form.find("textarea").val());
 
     $.post(window.location.origin + "/api/problem", {
-        cardId: form.find("input[name='cardId']").val(),
+        cardId: cardId,
         cardStatus: form.find("input[name='cardStatus']").val(),
         comments: form.find("textarea").val()
     }).done(function (response) {
-        alert(response.statusText);
+        if(response.message == "okay"){
+            card.attr("data-status", response.status);
+            form.data("status", response.status);
+            card.find("span.card-status").text(response.status);
+            card.find("input[type='checkbox']").prop("checked", true);
+            swal("Success", "Your card has been reported as " + response.status.toLowerCase() + ".\nWe are investigating this issue and will back to you in 2 business days. ", "success").then((value) => {
+                $('#problemModal').modal("hide");
+              });;
+        }
+        else{
+            swal("Error", "Something went wrong", "error");
+        }
     }).fail(function (error) {
+        checkbox.prop("checked", !isChecked);
         swal("Error", "Something went wrong " + error, "error");
     });
 });

@@ -34,18 +34,18 @@ namespace CreditCardApp.Controllers
         [HttpPost("api/problem")]
         public JsonResult Problem(string cardId, CardCompromisedEnums cardStatus, string comment)
         {
-            var request = new RestRequest($"cardcontrols/reportcardissue/", Method.POST);
+            var data = new { cardId, cardStatus, comment };
+
+            var request = new RestRequest($"cardcontrols/reportcardissue", Method.POST, DataFormat.Json);
             request.AddHeader("API-Key", apiKey);
-            request.AddParameter("cardId", cardId);
-            request.AddParameter("cardStatus", cardStatus);
-            request.AddParameter("comment", comment);
+            request.AddJsonBody(data);
 
             var result = Client.Execute(request);
             var content = JsonConvert.DeserializeObject<ApiResponse>(result.Content);
 
             content.Status = cardStatus.ToString("g");
 
-            return Json(result.Content);
+            return Json(content);
         }
     }
 }
