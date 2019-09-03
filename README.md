@@ -1,3 +1,4 @@
 # sampleCreditCardApp
 
-Credit card code from https://codepen.io/veronicadev/pen/VXqZgR.
+Credit card code modified from https://codepen.io/veronicadev/pen/VXqZgR.
+Uses boostrap 4, jquery, and sweet alert. https://sweetalert.js.org/
