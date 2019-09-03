@@ -3,6 +3,7 @@ using CreditCardApp.BusinessLayer.Responses;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using RestSharp;
+using System;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -23,7 +24,7 @@ namespace CreditCardApp.Controllers
             request.AddHeader("API-Key", apiKey);
 
             var result = Client.Execute(request);
-            var content = JsonConvert.DeserializeObject<ApiResponse>(result.Content);
+            var content = JsonConvert.DeserializeObject<InternalApiResponse>(result.Content);
 
             content.Status = (cardStatus == CardCompromisedEnums.OK ? CardCompromisedEnums.Locked : CardCompromisedEnums.OK).ToString("g");
             
@@ -41,7 +42,7 @@ namespace CreditCardApp.Controllers
             request.AddJsonBody(data);
 
             var result = Client.Execute(request);
-            var content = JsonConvert.DeserializeObject<ApiResponse>(result.Content);
+            var content = JsonConvert.DeserializeObject<InternalApiResponse>(result.Content);
 
             content.Status = cardStatus.ToString("g");
 

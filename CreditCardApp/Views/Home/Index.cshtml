@@ -1,7 +1,10 @@
 ﻿@{
     ViewData["Title"] = "Credit Card App";
-    /// This data can come from the API, but for this module (which would need more security) will load all the data.
-    ViewData["CardData"] = new List<CardViewModel>()
+    /// This data can come from the API if you declare userID
+
+    if(ViewData["CardData"] == null)
+    {
+        ViewData["CardData"] = new List<CardViewModel>()
 {
             new CardViewModel()
             {
@@ -9,7 +12,8 @@
                 CardStatus = CreditCardApp.BusinessLayer.Enum.CardCompromisedEnums.OK,
                 LastFourDigits = 3123,
                 SecurityCode = 999,
-                ExpirationDate = DateTime.Now.AddYears(2)
+                ExpirationDate = DateTime.Now.AddYears(2),
+                CardId = 1256
             },
             new CardViewModel()
             {
@@ -17,7 +21,8 @@
                 CardStatus = CreditCardApp.BusinessLayer.Enum.CardCompromisedEnums.OK,
                 LastFourDigits = 9125,
                 SecurityCode = 249,
-                ExpirationDate = DateTime.Now.AddYears(1).AddMonths(3)
+                ExpirationDate = DateTime.Now.AddYears(1).AddMonths(3),
+                CardId = 1257
             },
             new CardViewModel()
             {
@@ -25,7 +30,8 @@
                 CardStatus = CreditCardApp.BusinessLayer.Enum.CardCompromisedEnums.Stolen,
                 LastFourDigits = 8562,
                 SecurityCode = 979,
-                ExpirationDate = DateTime.Now.AddYears(1).AddMonths(1)
+                ExpirationDate = DateTime.Now.AddYears(1).AddMonths(1),
+                CardId = 1258
             },
             new CardViewModel()
             {
@@ -33,9 +39,11 @@
                 CardStatus = CreditCardApp.BusinessLayer.Enum.CardCompromisedEnums.Locked,
                 LastFourDigits = 1151,
                 SecurityCode = 515,
-                ExpirationDate = DateTime.Now.AddYears(4).AddMonths(5)
+                ExpirationDate = DateTime.Now.AddYears(4).AddMonths(5),
+                CardId = 1259
             },
-    };
+        };
+    }
 }
 
     <div class="row">
@@ -110,7 +118,6 @@
                             <button type="button" class="btn btn-primary" id="modal-submit">Submit</button>
                         </div>
                     </form>
-
                 </div>
             </div>
         </div>

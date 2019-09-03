@@ -6,7 +6,7 @@ namespace CreditCardApp.BusinessLayer.Responses
     /// <summary>
     /// DTO for ApiResponse
     /// </summary>
-    public class ApiResponse
+    public class InternalApiResponse
     {
         public string Message { get; set; }
 

@@ -17,5 +17,7 @@ namespace CreditCardApp.Models
         public double SecurityCode { get; set; }
 
         public CardCompromisedEnums CardStatus { get; set; }
+
+        public int CardId { get; set; }
     }
 }

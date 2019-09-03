@@ -5,14 +5,26 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CreditCardApp.Models;
+using CreditCardApp.BusinessLayer;
+using Newtonsoft.Json;
 
 namespace CreditCardApp.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        [HttpGet]
+        public IActionResult Index(string userId)
         {
-            return View();
+            if (string.IsNullOrEmpty(userId))
+            {
+                return View();
+            }
+            else
+            {
+                var apiCardInfo = ApiHelper.GetCardInfo(userId).ConvertToCardViewModel();
+                ViewData["CardData"] = apiCardInfo;
+                return View();
+            }
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
